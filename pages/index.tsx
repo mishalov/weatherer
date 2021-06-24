@@ -1,8 +1,15 @@
+import getMainPageInitialProps from "../src/initialProps/getMainPageInitialProps";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import weatherByCityQuery from "queries/weatherByCityQuery";
 
-export default function Home() {
+interface IHomeProps {
+  weather: any;
+}
+
+const Home = (props: IHomeProps) => {
+  console.log("props: ", props);
   return (
     <div className={styles.container}>
       <Head>
@@ -31,4 +38,9 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+
+// This gets called on every request
+export const getServerSideProps = getMainPageInitialProps;
+
+export default Home;

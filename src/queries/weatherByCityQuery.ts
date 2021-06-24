@@ -4,8 +4,8 @@ import client from "apollo-client";
 const weatherByCityQuery = async (city: string) => {
   const { data } = await client.query({
     query: gql`
-      query {
-        getCityByName(city: String!) {
+      query ($city: String!) {
+        getCityByName(name: $city) {
           id
           name
           country
@@ -41,6 +41,8 @@ const weatherByCityQuery = async (city: string) => {
     `,
     variables: { city },
   });
+
+  return data.getCityByName;
 };
 
 export default weatherByCityQuery;
