@@ -9,10 +9,6 @@ const weatherByCity = async (city: string): Promise<IWeather | null> => {
           id
           name
           country
-          coord {
-            lon
-            lat
-          }
           weather {
             summary {
               title

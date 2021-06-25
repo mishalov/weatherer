@@ -9,6 +9,15 @@ const mandatoryConstants = {
 
 const optionalConstants = {
   debugIpAddress: process.env.DEBUG_IP_ADDRESS,
+  importantCities: [
+    "New York",
+    "London",
+    "Berlin",
+    "Vienna",
+    "Moscow",
+    "Tokyo",
+    "Beijin",
+  ],
 };
 
 Object.keys(mandatoryConstants).forEach((constant) => {
