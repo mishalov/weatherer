@@ -1,15 +1,16 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import weatherByCityQuery from "queries/weatherByCityQuery";
-import getUserCityByIp from "services/getUserCityByIp";
+import getCityByIp from "services/getCityByIp";
 
 const getMainPageInitialProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const userIp = context.req.socket.remoteAddress;
+  const userIp =
+    process.env.DEBUG_IP_ADDRESS || context.req.socket.remoteAddress;
   let userCity = null;
 
   if (userIp) {
-    userCity = await getUserCityByIp(userIp);
+    userCity = await getCityByIp(userIp);
   }
   const weather = await weatherByCityQuery("Moscow");
 
