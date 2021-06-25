@@ -5,7 +5,7 @@ const weatherByCity = async (city: string): Promise<IWeather | null> => {
   const { data } = await client.query({
     query: gql`
       query($city: String!) {
-        getCityByName(name: $city) {
+        getCityByName(name: $city, config: { units: metric }) {
           id
           name
           country

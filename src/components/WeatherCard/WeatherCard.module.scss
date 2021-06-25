@@ -1,0 +1,38 @@
+@import "../../styles/mixines.scss";
+
+.card {
+  display: flex;
+  align-items: center;
+  @include card();
+}
+
+.illustration {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.summary {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  text-transform: capitalize;
+}
+
+.temperature {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+
+  font-size: 1rem;
+
+  &_value {
+    font-size: 3rem;
+  }
+
+  &_postfix {
+    margin-top: 4px;
+  }
+}
+
+.location {
+  margin-top: 4px;
+}

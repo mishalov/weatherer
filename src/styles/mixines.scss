@@ -1,0 +1,18 @@
+@import "./variables.scss";
+@import "./responsive.scss";
+
+@mixin small-shadow {
+  box-shadow: 0 0 4px $col-shadow;
+}
+
+@mixin card {
+  @include small-shadow();
+  background-color: $col-card-background;
+  padding: 12px;
+  border-radius: $small-mobile-br;
+
+  @include desktop {
+    padding: 16px;
+    border-radius: $small-desktop-br;
+  }
+}

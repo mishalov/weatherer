@@ -5,6 +5,7 @@
  */
 const mandatoryConstants = {
   ipstackAccessKey: process.env.IP_STACK_KEY,
+  weatherImagesDomain: "http://openweathermap.org",
 };
 
 const optionalConstants = {

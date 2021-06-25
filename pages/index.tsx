@@ -2,13 +2,15 @@ import getMainPageInitialProps from "../src/initialProps/getMainPageInitialProps
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import withCommonProps from "utils/withCommonProps";
+import WeatherCard from "components/WeatherCard";
 
 interface IHomeProps {
-  weather: any;
+  weather: IWeather;
+  weatherInImportantCities: IWeather[];
 }
 
-const Home = (props: IHomeProps) => {
-  console.log("props: ", props);
+const Home: React.FC<IHomeProps> = ({ weather }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -18,9 +20,8 @@ const Home = (props: IHomeProps) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <h1 className={styles.title}>Current Weather</h1>
+        <WeatherCard weather={weather} />
       </main>
 
       <footer className={styles.footer}>
@@ -39,7 +40,6 @@ const Home = (props: IHomeProps) => {
   );
 };
 
-// This gets called on every request
-export const getServerSideProps = getMainPageInitialProps;
+export const getServerSideProps = withCommonProps(getMainPageInitialProps);
 
 export default Home;
