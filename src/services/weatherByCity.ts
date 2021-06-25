@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 import client from "apollo-client";
 
-const weatherByCityQuery = async (city: string) => {
+const weatherByCity = async (city: string): Promise<IWeather | null> => {
   const { data } = await client.query({
     query: gql`
-      query ($city: String!) {
+      query($city: String!) {
         getCityByName(name: $city) {
           id
           name
@@ -45,4 +45,4 @@ const weatherByCityQuery = async (city: string) => {
   return data.getCityByName;
 };
 
-export default weatherByCityQuery;
+export default weatherByCity;

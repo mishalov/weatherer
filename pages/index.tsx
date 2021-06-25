@@ -2,7 +2,6 @@ import getMainPageInitialProps from "../src/initialProps/getMainPageInitialProps
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import weatherByCityQuery from "queries/weatherByCityQuery";
 
 interface IHomeProps {
   weather: any;

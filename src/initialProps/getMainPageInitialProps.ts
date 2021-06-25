@@ -1,23 +1,29 @@
+import { optionalConstants } from "config";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import weatherByCityQuery from "queries/weatherByCityQuery";
+import weatherByCity from "services/weatherByCity";
 import getCityByIp from "services/getCityByIp";
+import inDevelopmentOnly from "utils/inDevelopmentOnly";
 
 const getMainPageInitialProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const userIp =
-    process.env.DEBUG_IP_ADDRESS || context.req.socket.remoteAddress;
-  let userCity = null;
+  const userIp = inDevelopmentOnly(
+    optionalConstants.debugIpAddress,
+    context.req.socket.remoteAddress
+  );
+  let userCity: ICity | null = null;
+  let weather: IWeather | null = null;
 
   if (userIp) {
     userCity = await getCityByIp(userIp);
+    if (userCity) {
+      weather = await weatherByCity(userCity.city);
+    }
   }
-  const weather = await weatherByCityQuery("Moscow");
 
   return {
     props: {
       weather,
-      userIp,
       userCity,
     },
   };
