@@ -1,4 +1,5 @@
 import WeatherCard from "components/WeatherCard";
+import styles from "./Footer.module.scss";
 import React from "react";
 
 interface IFooterProps {
@@ -7,7 +8,7 @@ interface IFooterProps {
 
 const Footer: React.FC<IFooterProps> = ({ importantCityWeathers }) => {
   return (
-    <footer>
+    <footer className={styles.footer}>
       {importantCityWeathers.map((weather) => (
         <WeatherCard weather={weather} key={weather.id} />
       ))}

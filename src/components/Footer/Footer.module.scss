@@ -1,0 +1,16 @@
+@import "../../styles/responsive.scss";
+
+.footer {
+  gap: 14px;
+  display: grid;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
