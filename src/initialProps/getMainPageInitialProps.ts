@@ -4,20 +4,21 @@ import weatherByCity from "services/weatherByCity";
 import getCityByIp from "services/getCityByIp";
 import inDevelopmentOnly from "utils/inDevelopmentOnly";
 import { IMainPageProps } from "components/pages/Homepage/Homepage";
+import getUserIPFromRequest from "utils/getUserIPFromRequest";
 
 const getMainPageInitialProps: GetServerSideProps<IMainPageProps> = async ({
   req,
 }: GetServerSidePropsContext) => {
   const userIp = inDevelopmentOnly(
     optionalConstants.debugIpAddress,
-    req.socket.remoteAddress
+    getUserIPFromRequest(req)
   );
   let userCity: ICity | null = null;
   let weather: IWeather | null = null;
 
-  if (userIp) {
+  if (userIp && !Array.isArray(userIp)) {
     userCity = await getCityByIp(userIp);
-    if (userCity) {
+    if (userCity && userCity.city) {
       weather = await weatherByCity(userCity.city);
     }
   }

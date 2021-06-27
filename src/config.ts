@@ -6,6 +6,7 @@
 const mandatoryConstants = {
   ipstackAccessKey: process.env.IP_STACK_KEY,
   weatherImagesDomain: "http://openweathermap.org",
+  weatherEndpoint: "https://graphql-weather-api.herokuapp.com/",
 };
 
 const optionalConstants = {

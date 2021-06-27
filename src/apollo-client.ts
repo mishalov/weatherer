@@ -1,7 +1,8 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { mandatoryConstants } from "config";
 
 const client = new ApolloClient({
-  uri: "https://graphql-weather-api.herokuapp.com/",
+  uri: mandatoryConstants.weatherEndpoint,
   cache: new InMemoryCache(),
 });
 
