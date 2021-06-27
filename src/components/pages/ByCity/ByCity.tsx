@@ -19,7 +19,9 @@ const ByCity: React.FC<IByCityPageProps & ICommonPageProps> = (props) => (
       <NotFound />
     )}
     <div className={styles.back}>
-      <Link href="/">← Back to mainpage</Link>
+      <Link href="/">
+        <a>← Back to mainpage</a>
+      </Link>
     </div>
   </BasicTemplate>
 );
