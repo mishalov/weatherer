@@ -1,22 +1,48 @@
-.currentWeather {
-  display: grid;
-  grid-template-columns: 1fr 64px;
-}
+@import "../../styles/responsive.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixines.scss";
 
-.icon {
-  &_container {
-    grid-row: 1 / 3;
-    grid-column: 2;
-  }
+.currentWeather {
+  width: 100%;
+  display: grid;
+  column-gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
 }
 
 .title {
-  font-size: 1.6rem;
-  line-height: 1.8rem;
+  @include standardHeader();
+
+  &_container {
+    display: flex;
+    grid-column: 1 / 5;
+  }
 }
 
 .description {
-  font-size: 1.6rem;
-  line-height: 1.8rem;
-  opacity: 0.8;
+  @include standardHeader();
+  opacity: $light-opacity;
+}
+
+.temperature {
+  &_label {
+    opacity: $light-opacity;
+  }
+}
+
+@include tablet() {
+  .description {
+    margin-top: 8px;
+  }
+
+  .currentWeather {
+    grid-template-columns: 1fr repeat(3, 80px);
+  }
+
+  .title {
+    &_container {
+      display: block;
+      grid-column: 1;
+    }
+  }
 }

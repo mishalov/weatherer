@@ -16,3 +16,8 @@
     border-radius: $small-desktop-br;
   }
 }
+
+@mixin standardHeader {
+  font-size: $standard-header-size;
+  line-height: $standard-header-line;
+}

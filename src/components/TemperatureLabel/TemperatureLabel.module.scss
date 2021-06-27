@@ -1,11 +1,14 @@
+@import "../../styles/variables.scss";
+
 .temperature {
   display: flex;
-  align-items: flex-start;
-
-  font-size: 1rem;
 
   &_value {
-    font-size: 3rem;
+    font-size: $temperature-size;
+  }
+
+  &_postfix {
+    font-size: $temperature-sign-size;
   }
 
   &_postfix {
