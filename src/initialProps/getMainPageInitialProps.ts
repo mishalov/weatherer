@@ -3,13 +3,11 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import weatherByCity from "services/weatherByCity";
 import getCityByIp from "services/getCityByIp";
 import inDevelopmentOnly from "utils/inDevelopmentOnly";
+import { IMainPageProps } from "../../pages";
 
-const getMainPageInitialProps: GetServerSideProps = async ({
+const getMainPageInitialProps: GetServerSideProps<IMainPageProps> = async ({
   req,
-  query,
 }: GetServerSidePropsContext) => {
-  console.log("query: ", query);
-
   const userIp = inDevelopmentOnly(
     optionalConstants.debugIpAddress,
     req.socket.remoteAddress
@@ -27,7 +25,7 @@ const getMainPageInitialProps: GetServerSideProps = async ({
   return {
     props: {
       weather,
-      userCity,
+      cityName: userCity ? userCity.city : null,
     },
   };
 };

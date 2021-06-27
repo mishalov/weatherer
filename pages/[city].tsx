@@ -1,27 +1,28 @@
 import getMainPageInitialProps from "../src/initialProps/getMainPageInitialProps";
 import styles from "../styles/Home.module.css";
-import withCommonProps from "utils/withCommonProps";
-import CurrentCityWeather from "components/CurrentCityWeather";
-import Footer from "components/Footer";
-import SEO from "components/SEO";
+import withCommonProps from "initialProps/utils/withCommonProps";
+import CurrentCityWeather from "components/molecules/CurrentCityWeather";
+import NotFound from "components/atoms/NotFound";
+import Footer from "components/organisms/Footer";
+import SEO from "components/atoms/SEO";
+import getByCityInitialProps from "initialProps/getByCityInitialProps";
 
-interface IByCityPageProps {
-  weather: IWeather;
-  city: ICity | null;
-  weatherInImportantCities: IWeather[];
+export interface IByCityPageProps {
+  weather: IWeather | null;
+  cityName: string | null;
 }
 
-const ByCityPage: React.FC<IByCityPageProps> = ({
+const ByCityPage: React.FC<IByCityPageProps & ICommonPageProps> = ({
   weather,
-  city,
+  cityName,
   weatherInImportantCities,
 }) => {
   return (
     <div className={styles.container}>
-      <SEO city={city} />
+      <SEO cityName={cityName} />
 
       <main className={styles.main}>
-        <CurrentCityWeather weather={weather} />
+        {weather ? <CurrentCityWeather weather={weather} /> : <NotFound />}
       </main>
 
       <Footer importantCityWeathers={weatherInImportantCities} />
@@ -29,6 +30,6 @@ const ByCityPage: React.FC<IByCityPageProps> = ({
   );
 };
 
-export const getServerSideProps = withCommonProps(getMainPageInitialProps);
+export const getServerSideProps = withCommonProps(getByCityInitialProps);
 
 export default ByCityPage;

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./CurrentCityWeather.module.scss";
 import Image from "next/image";
 import buildWeatherIconUrl from "utils/buildWeatherIconUrl";
-import TemperatureLabel from "components/TemperatureLabel";
+import TemperatureLabel from "components/atoms/TemperatureLabel";
 import cn from "classnames";
 
 interface ICurrentCityWeatherProps {

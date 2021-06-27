@@ -1,0 +1,3 @@
+interface ICommonPageProps {
+  weatherInImportantCities: IWeather[];
+}

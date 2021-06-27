@@ -1,4 +1,4 @@
-import WeatherCard from "components/WeatherCard";
+import WeatherCard from "components/molecules/WeatherCard";
 import styles from "./Footer.module.scss";
 import React from "react";
 

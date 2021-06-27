@@ -1,6 +1,6 @@
-@import "../../styles/responsive.scss";
-@import "../../styles/variables.scss";
-@import "../../styles/mixines.scss";
+@import "../../../styles/responsive.scss";
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixines.scss";
 
 .currentWeather {
   width: 100%;
@@ -20,6 +20,7 @@
 }
 
 .description {
+  text-transform: capitalize;
   @include standardHeader();
   opacity: $light-opacity;
 }
