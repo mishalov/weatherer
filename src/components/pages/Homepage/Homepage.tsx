@@ -1,33 +1,26 @@
-import SEO from "components/atoms/SEO";
 import React from "react";
-import styles from "./Homepage.module.scss";
 import CurrentCityWeather from "components/molecules/CurrentCityWeather";
-import CityInput from "components/atoms/CityInput";
-import Footer from "components/organisms/Footer";
+import BasicTemplate from "components/templates/BasicTemplate";
+import CityInput from "components/molecules/CityInput";
+import styles from "./Homepage.module.scss";
 
 export interface IMainPageProps {
   weather: IWeather | null;
   cityName: string | null;
 }
 
-const Homepage: React.FC<IMainPageProps & ICommonPageProps> = ({
-  weather,
-  cityName,
-  weatherInImportantCities,
-}) => (
-  <div className={styles.container}>
-    <SEO cityName={cityName} />
-
-    <main className={styles.main}>
-      {weather ? (
-        <CurrentCityWeather weather={weather} />
-      ) : (
-        "We cant understand were are you from. Please, select exact city from the list"
-      )}
-      <CityInput />
-    </main>
-    <Footer importantCityWeathers={weatherInImportantCities} />
-  </div>
+const Homepage: React.FC<IMainPageProps & ICommonPageProps> = (props) => (
+  <BasicTemplate {...props}>
+    {props.weather ? (
+      <CurrentCityWeather weather={props.weather} />
+    ) : (
+      <div>
+        We cant understand were are you from. Please, select exact city from the
+        list
+      </div>
+    )}
+    <CityInput className={styles.cityInput} />
+  </BasicTemplate>
 );
 
 export default Homepage;

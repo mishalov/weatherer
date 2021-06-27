@@ -4,7 +4,7 @@ import client from "apollo-client";
 const weatherByCity = async (city: string): Promise<IWeather | null> => {
   const { data } = await client.query({
     query: gql`
-      query($city: String!) {
+      query ($city: String!) {
         getCityByName(name: $city, config: { units: metric }) {
           id
           name
@@ -20,15 +20,6 @@ const weatherByCity = async (city: string): Promise<IWeather | null> => {
               feelsLike
               min
               max
-            }
-            wind {
-              speed
-              deg
-            }
-            clouds {
-              all
-              visibility
-              humidity
             }
             timestamp
           }

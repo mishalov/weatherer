@@ -1,32 +1,27 @@
 import React from "react";
 
-import styles from "../styles/Home.module.css";
 import CurrentCityWeather from "components/molecules/CurrentCityWeather";
 import NotFound from "components/atoms/NotFound";
-import Footer from "components/organisms/Footer";
-import SEO from "components/atoms/SEO";
+import BasicTemplate from "components/templates/BasicTemplate";
+import Link from "next/link";
+import styles from "./ByCity.module.scss";
 
 export interface IByCityPageProps {
   weather: IWeather | null;
   cityName: string | null;
 }
 
-const ByCity: React.FC<IByCityPageProps & ICommonPageProps> = ({
-  weather,
-  cityName,
-  weatherInImportantCities,
-}) => {
-  return (
-    <div className={styles.container}>
-      <SEO cityName={cityName} />
-
-      <main className={styles.main}>
-        {weather ? <CurrentCityWeather weather={weather} /> : <NotFound />}
-      </main>
-
-      <Footer importantCityWeathers={weatherInImportantCities} />
+const ByCity: React.FC<IByCityPageProps & ICommonPageProps> = (props) => (
+  <BasicTemplate {...props}>
+    {props.weather ? (
+      <CurrentCityWeather weather={props.weather} />
+    ) : (
+      <NotFound />
+    )}
+    <div className={styles.back}>
+      <Link href="/">← Back to mainpage</Link>
     </div>
-  );
-};
+  </BasicTemplate>
+);
 
 export default ByCity;

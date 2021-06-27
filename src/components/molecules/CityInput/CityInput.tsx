@@ -1,6 +1,4 @@
 import React, { ChangeEvent, useState } from "react";
-import styles from "./CityInput.module.scss";
-import cn from "classnames";
 
 interface ICityInputProps {
   className?: string;
@@ -13,7 +11,7 @@ const CityInput: React.FC<ICityInputProps> = ({ className }) => {
     setCityValue(e.target.value);
 
   return (
-    <form action={`/${cityValue}`} className={cn(className, styles.cityInput)}>
+    <form action={`/${cityValue}`} className={className}>
       <input
         onChange={onChangeHandle}
         title="Please type city name"
