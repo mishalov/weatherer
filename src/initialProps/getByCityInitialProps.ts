@@ -1,6 +1,6 @@
+import { IByCityPageProps } from "components/pages/ByCity/ByCity";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import weatherByCity from "services/weatherByCity";
-import { IByCityPageProps } from "../../pages/[city]";
 
 const getByCityInitialProps: GetServerSideProps<IByCityPageProps> = async ({
   query,

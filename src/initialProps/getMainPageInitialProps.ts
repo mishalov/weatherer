@@ -3,7 +3,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import weatherByCity from "services/weatherByCity";
 import getCityByIp from "services/getCityByIp";
 import inDevelopmentOnly from "utils/inDevelopmentOnly";
-import { IMainPageProps } from "../../pages";
+import { IMainPageProps } from "components/pages/Homepage/Homepage";
 
 const getMainPageInitialProps: GetServerSideProps<IMainPageProps> = async ({
   req,
