@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./WeatherCard.module.scss";
 import Image from "next/image";
 import buildWeatherIconUrl from "utils/buildWeatherIconUrl";
+import TemperatureLabel from "components/TemperatureLabel";
 
 interface IWeatherCardProps {
   weather: IWeather;
@@ -13,12 +14,11 @@ const WeatherCard: React.FC<IWeatherCardProps> = ({ weather }) => {
     <article className={styles.card}>
       <div>
         <div className={styles.summary}>{weatherInfo.summary.description}</div>
-        <div className={styles.temperature}>
-          <div className={styles.temperature_value}>
-            {Math.trunc(weatherInfo.temperature.actual)}
-          </div>
-          <div className={styles.temperature_postfix}>°C</div>
-        </div>
+        <TemperatureLabel
+          value={weatherInfo.temperature.actual}
+          sign="°C"
+          className={styles.temperature}
+        />
         <div className={styles.location}>
           <h2>
             {weather.name}, {weather.country}

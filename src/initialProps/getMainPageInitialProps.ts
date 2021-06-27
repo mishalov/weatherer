@@ -4,12 +4,15 @@ import weatherByCity from "services/weatherByCity";
 import getCityByIp from "services/getCityByIp";
 import inDevelopmentOnly from "utils/inDevelopmentOnly";
 
-const getMainPageInitialProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
+const getMainPageInitialProps: GetServerSideProps = async ({
+  req,
+  query,
+}: GetServerSidePropsContext) => {
+  console.log("query: ", query);
+
   const userIp = inDevelopmentOnly(
     optionalConstants.debugIpAddress,
-    context.req.socket.remoteAddress
+    req.socket.remoteAddress
   );
   let userCity: ICity | null = null;
   let weather: IWeather | null = null;

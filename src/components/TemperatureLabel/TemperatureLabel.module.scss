@@ -1,0 +1,14 @@
+.temperature {
+  display: flex;
+  align-items: flex-start;
+
+  font-size: 1rem;
+
+  &_value {
+    font-size: 3rem;
+  }
+
+  &_postfix {
+    margin-top: 4px;
+  }
+}

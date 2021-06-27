@@ -1,6 +1,12 @@
 import getBaseProps from "initialProps/getBaseProps";
 import { GetServerSideProps } from "next";
 
+/**
+ * Decorator, that add common page props to current page
+ *
+ * @param getProps function that making page props
+ * @returns
+ */
 const withCommonProps = (getProps: GetServerSideProps) => {
   const decoratedPropsGetter: GetServerSideProps = async (context) => {
     const propsObjects = await Promise.all([getBaseProps(), getProps(context)]);
