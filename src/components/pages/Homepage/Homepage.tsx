@@ -19,7 +19,11 @@ const Homepage: React.FC<IMainPageProps & ICommonPageProps> = (props) => (
         list
       </div>
     )}
-    <CityInput className={styles.cityInput} />
+    <h3 className={styles.disclaimer}>
+      City obtained from your IP address, but if you want check weather in
+      another - use form below :)
+    </h3>
+    <CityInput />
   </BasicTemplate>
 );
 

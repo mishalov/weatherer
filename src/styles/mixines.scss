@@ -17,7 +17,12 @@
   }
 }
 
-@mixin standardHeader {
+@mixin standardHeaderFontSize {
   font-size: $standard-header-size;
   line-height: $standard-header-line;
+}
+
+@mixin smallHeaderFontSize {
+  font-size: $small-header-size;
+  line-height: $small-header-line;
 }

@@ -1,3 +1,7 @@
-.cityInput {
-  margin-top: 36px;
+@import "../../../styles/mixines.scss";
+
+.disclaimer {
+  padding: 48px 30px;
+  text-align: center;
+  @include standardHeaderFontSize();
 }

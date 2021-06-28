@@ -1,0 +1,19 @@
+@import "../../../styles/mixines.scss";
+
+.field {
+  @include smallHeaderFontSize();
+  padding: 4px 12px 4px 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-width: 1px;
+}
+
+.button {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-width: 1px;
+}
+
+.cityInput {
+  display: flex;
+}
