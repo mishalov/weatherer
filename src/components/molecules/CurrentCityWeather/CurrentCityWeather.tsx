@@ -16,10 +16,8 @@ const CurrentCityWeather: React.FC<ICurrentCityWeatherProps> = ({
   return (
     <article className={styles.currentWeather}>
       <div className={styles.title_container}>
-        <h1 className={styles.title}>{weather.name}: </h1>
-        <h2 className={styles.description}>
-          {weatherInfo.summary.description}
-        </h2>
+        <h1 className={styles.title}>{weatherInfo.summary.description} </h1>
+        <h2 className={styles.description}>{weather.name}</h2>
       </div>
 
       <div className={cn(styles.temperature, styles.temperature_actual)}>

@@ -12,6 +12,8 @@
 .title {
   @include standardHeaderFontSize();
 
+  text-transform: capitalize;
+
   &_container {
     display: flex;
     grid-column: 1 / 5;
@@ -22,7 +24,6 @@
   @include standardHeaderFontSize();
 
   margin-left: 8px;
-  text-transform: capitalize;
   opacity: $light-opacity;
 }
 
