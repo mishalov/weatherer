@@ -11,6 +11,9 @@
 }
 
 .button {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-width: 1px;
