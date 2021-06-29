@@ -26,3 +26,8 @@
   font-size: $small-header-size;
   line-height: $small-header-line;
 }
+
+@mixin subtitleFontSize {
+  font-size: $subtitle-size;
+  line-height: $subtitle-line;
+}

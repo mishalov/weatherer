@@ -23,4 +23,5 @@
 
 .location {
   margin-top: 4px;
+  @include subtitleFontSize();
 }
