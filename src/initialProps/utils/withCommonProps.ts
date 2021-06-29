@@ -7,7 +7,9 @@ import { GetServerSideProps } from "next";
  * @param getProps function that making page props
  * @returns
  */
-const withCommonProps = (getProps: GetServerSideProps) => {
+const withCommonProps = <TPageProps>(
+  getProps: GetServerSideProps<TPageProps>
+) => {
   const decoratedPropsGetter: GetServerSideProps = async (context) => {
     const propsObjects = await Promise.all([getBaseProps(), getProps(context)]);
 
@@ -16,7 +18,10 @@ const withCommonProps = (getProps: GetServerSideProps) => {
 
     const mergedProps = {
       ...pageProps,
-      props: { ...baseProps.props, ...(pageProps as { props: any }).props },
+      props: {
+        ...baseProps.props,
+        ...(pageProps as { props: TPageProps }).props,
+      },
     };
     return mergedProps;
   };
