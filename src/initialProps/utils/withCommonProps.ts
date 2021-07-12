@@ -23,6 +23,8 @@ const withCommonProps = <TPageProps>(
         ...(pageProps as { props: TPageProps }).props,
       },
     };
+
+    console.log("mergedProps: ", mergedProps);
     return mergedProps;
   };
 

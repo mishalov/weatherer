@@ -13,6 +13,7 @@ const getMainPageInitialProps: GetServerSideProps<IMainPageProps> = async ({
     optionalConstants.debugIpAddress,
     getUserIPFromRequest(req)
   );
+
   let userCity: ICity | null = null;
   let weather: IWeather | null = null;
 
