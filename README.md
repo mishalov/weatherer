@@ -11,3 +11,5 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Sometimes, user's IP cant be recognized because of proxy-server in Vercel's network infrastructure.
